@@ -4,6 +4,10 @@ import FrameL from "../assets/section-1/frame-l.webp";
 import FrameR from "../assets/section-1/frame-r.webp";
 import FrameT from "../assets/section-1/frame-t.webp";
 
+import Lantern from "../assets/section-1/lantern.webp";
+import TassleJade from "../assets/section-1/tassle-jade.webp";
+import TassleTinghun from "../assets/section-1/tassle-tinghun.webp";
+
 import BackgroundBuildings from "../assets/section-1/background-buildings.webp";
 
 export function Section1() {
@@ -13,17 +17,17 @@ export function Section1() {
       <img src={FrameL} className="absolute" style={{ left: '-10.5%', top: '5%',  width: '50%' }} />
       <img src={FrameR} className="absolute" style={{ right: '-12%', top: '5%',  width: '50%' }} />
 
+      <img src={Lantern} className="absolute" style={{ left: '-1%', top: '25.5%',  width: '23%' }} />
+      <img src={TassleJade} className="absolute" style={{ right: '9%', top: '18%',  width: '13%' }} />
+      <img src={TassleTinghun} className="absolute" style={{ right: '-1%', top: '28%',  width: '18%' }} />
+
       <img src={BorderBlueFlowerL} className="absolute" style={{ left: '-24%', top: '-9%', width: '75%' }} />
       <img src={BorderWhiteFlowerR} className="absolute" style={{ right: '-25%', top: '-8%',  width: '75%' }} />
 
 
-      <h3
-        className="
-          w-64 text-center top-42 left-1/2 -translate-x-1/2
-          font-caudex absolute text-xs font-bold"
-      >
-        YOU ARE CORDIALLY INVITED TO
-          CELEBRATE THE TINGHUN OF
+      <h3 className="w-64 text-center top-42 left-1/2 -translate-x-1/2 font-caudex absolute text-xs font-bold">
+        YOU ARE CORDIALLY INVITED TO 
+        CELEBRATE THE TINGHUN OF
       </h3>
 
       <div className="text-center top-56 left-1/2 -translate-x-1/2 font-corinthia absolute font-bold">
