@@ -8,4 +8,14 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  envDir: './',
+  server: {
+    host: '0.0.0.0', // Expose to the local network
+    port: 5173, // Change if needed
+    strictPort: true, // Prevents auto-changing port
+
+    allowedHosts: [
+      'dev.calvin-tango.com'
+    ]
+  },
 })
