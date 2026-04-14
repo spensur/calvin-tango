@@ -17,14 +17,22 @@ export function Section1() {
       <img src={BorderWhiteFlowerR} className="absolute" style={{ right: '-25%', top: '-8%',  width: '75%' }} />
 
 
-      <h1 
+      <h3
         className="
           w-64 text-center top-42 left-1/2 -translate-x-1/2
           font-caudex absolute text-xs font-bold"
       >
         YOU ARE CORDIALLY INVITED TO
           CELEBRATE THE TINGHUN OF
-      </h1>
+      </h3>
+
+      <div className="text-center top-56 left-1/2 -translate-x-1/2 font-corinthia absolute font-bold">
+        <h1 className="text-7xl">Melvin</h1>
+        <h1 className="text-5xl -mt-4">&</h1>
+        <h1 className="text-7xl -mt-8">Camille</h1>
+      </div>
+
+
     </section>
   )
 }
