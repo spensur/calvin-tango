@@ -1,2 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Corinthia:wght@400;700&display=swap");
 @import "tailwindcss";
 
+@theme {
+  --font-caudex: "Caudex", serif;
+  --font-corinthia: "Corinthia", cursive;
+}
+
+.invite-root {
+  max-width: 430px; /* iPhone Pro Max width */
+  margin: 0 auto;
+  min-height: 100dvh;
+}
+
+.section-1-bg {
+  background: linear-gradient(to bottom, #F0EFEB 0%, #E9E7E3 59%, #DAE3E8 83%, #C0DBF0 100%);
+}
