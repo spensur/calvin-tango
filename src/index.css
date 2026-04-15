@@ -7,6 +7,11 @@
   --font-corinthia: "Corinthia", cursive;
 }
 
+html, body, #root {
+  height: 100%;
+  background-color: #ABBEDB;
+}
+
 .invite-root {
   max-width: 430px; /* iPhone Pro Max width */
   margin: 0 auto;
@@ -14,5 +19,5 @@
 }
 
 .section-1-bg {
-  background: linear-gradient(to bottom, #F0EFEB 0%, #E9E7E3 59%, #DAE3E8 83%, #C0DBF0 100%);
+  background: linear-gradient(to bottom, #F0EFEB 0%, #E9E7E3 39%, #DAE3E8 63%, #C0DBF0 80%);
 }
