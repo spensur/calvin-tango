@@ -19,5 +19,5 @@ html, body, #root {
 }
 
 .section-1-bg {
-  background: linear-gradient(to bottom, #F0EFEB 0%, #E9E7E3 39%, #DAE3E8 63%, #C0DBF0 80%);
+  background: linear-gradient(to bottom, #F0EFEB 0%, #E9E7E3 39%, #DAE3E8 51%, #C0DBF0 60%);
 }
