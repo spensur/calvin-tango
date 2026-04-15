@@ -18,7 +18,7 @@ export function Section1() {
   return (
     <section className="relative w-full min-h-208 overflow-visible section-1-bg">
       {/* --- MELBIRD & CAMMY --- */}
-      <div className="w-full absolute bottom-0 bg-red-500">
+      <div className="w-full absolute bottom-0">
         <div className="relative size-full">
           <img src={BackgroundBuildings} className="absolute bottom-5" />
           <img src={RockPlatform} className="absolute -bottom-9 scale-110" />
