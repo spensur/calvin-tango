@@ -61,9 +61,9 @@ export function Section1() {
 
       <div className="text-center top-56 left-1/2 -translate-x-1/2 font-corinthia absolute font-bold overflow-visible p-1.5
         bg-linear-to-t from-[#E1BF6A] to-[#C28C2A] bg-clip-text text-transparent drop-shadow-sm">
-        <h1 className="text-7xl">Melvin</h1>
+        <h1 className="text-7xl">Melbird</h1>
         <h1 className="text-5xl -mt-4">&</h1>
-        <h1 className="text-7xl -mt-8">Camille</h1>
+        <h1 className="text-7xl -mt-8">Camel🐪</h1>
       </div>
 
 
