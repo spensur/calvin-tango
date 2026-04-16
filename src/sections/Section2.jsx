@@ -54,8 +54,8 @@ export function Section2() {
       </div>
 
       {/* --- FOOTER --- */}
-      <img src={Vase} className="absolute -left-6 bottom-0 scale-67"/>
-      <img src={Sun} className="absolute right-0 bottom-8 scale-67"/>
+      <img src={Vase} className="absolute -left-6 bottom-0 scale-89"/>
+      <img src={Sun} className="absolute right-0 bottom-8 scale-78"/>
 
     </section>
   );
