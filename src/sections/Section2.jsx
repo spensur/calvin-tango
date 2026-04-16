@@ -10,7 +10,6 @@ import SaveTheDate from "../assets/section-2/save-the-date.webp";
 
 import Vase from "../assets/section-2/vase-1.webp";
 import Sun from "../assets/section-2/sun-1.webp";
-import BackgroundWallpaper from "../assets/background-wallpaper.webp";
 
 
 export function Section2() {
@@ -18,10 +17,7 @@ export function Section2() {
 
 
   return (
-    <section className="relative w-full min-h-208 overflow-visible">
-      {/* --- BACKGROUND --- */}
-      <img src={BackgroundWallpaper} className="absolute inset-0 w-full h-full object-cover" />
-      
+    <section className="relative w-full min-h-220 overflow-visible">
       {/* --- TOP FRAME --- */}
       <div className="absolute w-full top-17.5">
         <div className="relative size-full">
@@ -45,17 +41,21 @@ export function Section2() {
             <h3 className="text-xl">09:30 PM</h3>
           </div>
 
+          {/* SCRATCH AREA */}
           <canvas
             ref={canvasRef}
             width={290} // pixel size == scratch zone in px
             height={250} 
-            className="absolute w-[290px] h-[250px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 cursor-crosshair touch-none rounded-full"
+            className="absolute w-72.5 h-62.5 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 cursor-crosshair touch-none rounded-full"
           />
 
           <img src={FrameFlower} className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 scale-90 pointer-events-none"/>
         </div>
       </div>
 
+      {/* --- FOOTER --- */}
+      <img src={Vase} className="absolute -left-6 bottom-0 scale-67"/>
+      <img src={Sun} className="absolute right-0 bottom-8 scale-67"/>
 
     </section>
   );
