@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Section1 } from "./sections/Section1";
 import { Section2 } from "./sections/Section2";
+import { RepeatingBackground } from "./components/RepeatingBackground";
 
 
 function App() {
 
   return (
-    <div className="invite-root overflow-hidden bg-white">
+    <div className="invite-root relative overflow-hidden">
+      <RepeatingBackground tileHeight="100vh" />
       <Section1/>
       <Section2/>
     </div>
