@@ -22,8 +22,13 @@ export function Section1() {
         <div className="relative size-full">
           <img src={BackgroundBuildings} className="absolute bottom-5" />
           <img src={RockPlatform} className="absolute -bottom-9 scale-110" />
-          <img src={Melbird} className="absolute left-13 -bottom-3 w-50 " />
-          <img src={Cammy} className="absolute right-19 -bottom-1 w-25" />
+          
+          <div className="absolute left-1/2 -translate-x-1/2 w-65 h-100 -bottom-2">
+            <div className="relative size-full">
+              <img src={Melbird} className="absolute -left-5 bottom-0 w-51 " />
+              <img src={Cammy} className="absolute right-0 bottom-1 w-25" />
+            </div>
+          </div>
         </div>
       </div>
 
