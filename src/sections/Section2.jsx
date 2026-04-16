@@ -1,3 +1,4 @@
+import useScratch from "../hooks/useScratch";
 import FlowerArch from "../assets/section-2/flower-arch.webp";
 import CurtainBlueT from "../assets/section-2/curtain-blue-t.webp";
 import CurtainBlueL from "../assets/section-2/curtain-blue-l.webp";
@@ -13,6 +14,9 @@ import BackgroundWallpaper from "../assets/background-wallpaper.webp";
 
 
 export function Section2() {
+  const { canvasRef, isRevealed } = useScratch(0.40);
+
+
   return (
     <section className="relative w-full min-h-208 overflow-visible">
       {/* --- BACKGROUND --- */}
@@ -32,7 +36,6 @@ export function Section2() {
       <div className="absolute w-100 h-113 left-1/2 -translate-x-1/2 top-67">
         <div className="relative size-full">
           <img src={ScratchTheDate} className="absolute left-1/2 -translate-x-1/2 scale-67"/>
-          <img src={FrameFlower} className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 scale-90"/>
           <img src={SaveTheDate} className="absolute left-1/2 -translate-x-1/2 bottom-0 scale-59"/>
 
           <div className="absolute w-60 h-26 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 
@@ -41,10 +44,19 @@ export function Section2() {
             <h1 className="text-4xl">SEP 26, 2026</h1>
             <h3 className="text-xl">09:30 PM</h3>
           </div>
+
+          <canvas
+            ref={canvasRef}
+            width={290} // pixel size == scratch zone in px
+            height={250} 
+            className="absolute w-[290px] h-[250px] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 cursor-crosshair touch-none rounded-full"
+          />
+
+          <img src={FrameFlower} className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 scale-90 pointer-events-none"/>
         </div>
       </div>
 
-      
+
     </section>
   );
 }
