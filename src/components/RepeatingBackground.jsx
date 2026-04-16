@@ -2,7 +2,7 @@ import BackgroundWallpaper from "../assets/background-wallpaper.webp";
 
 export function RepeatingBackground({ tileHeight = "100vh" }) {
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none bg-white">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none bg-white">
       {Array.from({ length: 20 }).map((_, i) => (
         <div
           key={i}

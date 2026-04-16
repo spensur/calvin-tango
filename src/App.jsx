@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Section1 } from "./sections/Section1";
 import { Section2 } from "./sections/Section2";
 import { RepeatingBackground } from "./components/RepeatingBackground";
+import { Section3 } from "./sections/Section3";
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <RepeatingBackground tileHeight="100vh" />
       <Section1/>
       <Section2/>
+      <Section3/>
     </div>
   );
 }
