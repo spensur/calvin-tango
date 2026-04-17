@@ -16,14 +16,15 @@ import Melbird from "../assets/section-1/melbird.webp";
 import RockPlatform from "../assets/section-1/rock-platform.webp";
 import { fromBottom, fromLeft, fromRight, fromTop, fadeIn } from "../animations/variants";
 import { SwingOnEntry } from "../animations/SwingOnEntry";
+import { Sway } from "../animations/Sway";
 
 
-export function Section1() {
+export function Section1({ unlocked }) {
   return (
     <motion.section
       className="relative w-full min-h-208 overflow-visible section-1-bg"
       initial="hidden"
-      animate="show"
+      animate={unlocked ? "show" : "hidden"}
     >
       {/* --- MELBIRD & CAMMY --- */}
       <div className="w-full absolute bottom-0">
@@ -47,19 +48,26 @@ export function Section1() {
 
       {/* --- TOP LEFT GRAPHICS --- */}
       <div className="relative left-0 -top-20">
-        <SwingOnEntry delay={1} className="absolute left-0 top-60 w-24"><img src={Lantern} className="w-full" /></SwingOnEntry>
-        <motion.img src={BorderBlueFlowerL} className="absolute -left-19 w-75" variants={fromLeft(0.15)} />
+        <SwingOnEntry delay={1} unlocked={unlocked} className="absolute left-0 top-60 w-24">
+          <img src={Lantern} className="w-full" />
+        </SwingOnEntry>
+        <Sway delay={0.2} amplitude={1.8} duration={5} origin="left" unlocked={unlocked} className="absolute -left-19 w-75">
+          <motion.img src={BorderBlueFlowerL} className="w-full" variants={fromLeft(0.15)} />
+        </Sway>
       </div>
 
       {/* --- TOP RIGHT GRAPHICS --- */}
       <div className="relative right-0 -top-15">
-        <SwingOnEntry delay={1.1} className="absolute right-11 top-46 w-13">
+        <SwingOnEntry delay={1.1} unlocked={unlocked} className="absolute right-11 top-46 w-13">
           <img src={TasselJade} className="w-full" />
         </SwingOnEntry>
-        <SwingOnEntry delay={1.3} className="absolute right-0 top-67 w-18">
+        <SwingOnEntry delay={1.3} unlocked={unlocked} className="absolute right-0 top-67 w-18">
           <img src={TasselTinghun} className="w-full" />
         </SwingOnEntry>
-        <motion.img src={BorderWhiteFlowerR} className="absolute -right-23 w-75" variants={fromRight(0.15)} />
+
+        <Sway delay={0.2} amplitude={1.8} duration={5} origin="right" unlocked={unlocked} className="absolute -right-23 w-75">
+          <motion.img src={BorderWhiteFlowerR} className="w-full" variants={fromRight(0.15)}/>
+        </Sway>
       </div>
 
       {/* --- TEXT --- */}

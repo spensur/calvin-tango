@@ -1,10 +1,12 @@
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 
-export function SwingOnEntry({ children, delay = 0, className = "" }) {
+export function SwingOnEntry({ children, delay = 0, className = "", unlocked }) {
   const controls = useAnimation();
 
   useEffect(() => {
+    if (!unlocked) return;
+
     async function sequence() {
       // Entry: swing in from a tilted position, anchor at top
       await controls.start({
@@ -36,7 +38,7 @@ export function SwingOnEntry({ children, delay = 0, className = "" }) {
     }
 
     sequence();
-  }, [controls, delay]);
+  }, [controls, delay, unlocked]);
 
   return (
     <motion.div

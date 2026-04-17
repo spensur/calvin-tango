@@ -10,15 +10,20 @@ import { AccessGate } from "./components/AccessGate";
 function App() {
   const [unlocked, setUnlocked] = useState(false);
 
+  function handleUnlock() {
+    setUnlocked(true);
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }
+
   return (
     <>
-      <AccessGate onUnlock={() => setUnlocked(true)} visible={!unlocked} />
+      <AccessGate onUnlock={handleUnlock} visible={!unlocked} />
       <div className="invite-root relative overflow-hidden">
         <RepeatingBackground tileHeight="100vh" />
-        <Section1 />
-        <Section2 />
-        <Section3 />
-        <Section4 />
+        <Section1 unlocked={unlocked} />
+        <Section2 unlocked={unlocked} />
+        <Section3 unlocked={unlocked} />
+        <Section4 unlocked={unlocked} />
       </div>
     </>
   );
