@@ -8,17 +8,19 @@ import { AccessGate } from "./components/AccessGate";
 
 
 function App() {
+  const [unlocked, setUnlocked] = useState(false);
 
   return (
-    <AccessGate>
+    <>
+      <AccessGate onUnlock={() => setUnlocked(true)} visible={!unlocked} />
       <div className="invite-root relative overflow-hidden">
         <RepeatingBackground tileHeight="100vh" />
-        <Section1/>
-        <Section2/>
-        <Section3/>
-        <Section4/>
+        <Section1 />
+        <Section2 />
+        <Section3 />
+        <Section4 />
       </div>
-    </AccessGate>
+    </>
   );
 }
 

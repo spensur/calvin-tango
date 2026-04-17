@@ -3,15 +3,14 @@ import { useState, useRef, useEffect } from "react";
 const CORRECT_CODE = import.meta.env.VITE_INVITE_CODE || "";
 const CODE_LENGTH = 6;
 
-export function AccessGate({ children }) {
+export function AccessGate({ onUnlock, visible }) {
   const [digits, setDigits] = useState(Array(CODE_LENGTH).fill(""));
-  const [status, setStatus] = useState("idle"); // "idle" | "error" | "success"
-  const [unlocked, setUnlocked] = useState(false);
+  const [status, setStatus] = useState("idle");
   const inputRefs = useRef([]);
 
   useEffect(() => {
-    inputRefs.current[0]?.focus();
-  }, []);
+    if (visible) inputRefs.current[0]?.focus();
+  }, [visible]);
 
   const handleChange = (index, value) => {
     const char = value.replace(/\D/g, "").slice(-1);
@@ -24,7 +23,6 @@ export function AccessGate({ children }) {
       inputRefs.current[index + 1]?.focus();
     }
 
-    // Auto-submit when all filled
     if (char && index === CODE_LENGTH - 1) {
       const entered = [...newDigits.slice(0, CODE_LENGTH - 1), char].join("");
       validate(entered);
@@ -66,7 +64,7 @@ export function AccessGate({ children }) {
   const validate = (code) => {
     if (code === CORRECT_CODE) {
       setStatus("success");
-      setTimeout(() => setUnlocked(true), 600);
+      setTimeout(() => onUnlock(), 600);
     } else {
       setStatus("error");
       setDigits(Array(CODE_LENGTH).fill(""));
@@ -77,12 +75,11 @@ export function AccessGate({ children }) {
     }
   };
 
-  if (unlocked) return <>{children}</>;
+  if (!visible) return null;
 
   return (
     <div className="access-gate">
       <div className="access-gate__card">
-        {/* Decorative ring */}
         <div className="access-gate__icon">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="12" y="18" width="16" height="13" rx="2" stroke="currentColor" strokeWidth="1.5"/>
@@ -117,7 +114,6 @@ export function AccessGate({ children }) {
             Incorrect code. Please try again.
           </p>
         )}
-
         {status === "success" && (
           <p className="access-gate__message access-gate__message--success">
             Welcome!

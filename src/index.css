@@ -24,12 +24,14 @@ html, body, #root {
 
 /* --- ACCESS GATE START --- */
 .access-gate {
-  min-height: 100vh;
+  position: fixed;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fdf6ee; /* match your invite bg or swap with your token */
+  background-color: #fdf6ee;
   padding: 2rem;
+  z-index: 9999;
 }
 
 .access-gate__card {
@@ -117,7 +119,6 @@ html, body, #root {
   100% { transform: translateX(0); }
 }
 
-/* Feedback messages */
 .access-gate__message {
   font-size: 0.85rem;
   margin: 0;
