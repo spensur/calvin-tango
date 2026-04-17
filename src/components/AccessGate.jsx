@@ -1,0 +1,129 @@
+import { useState, useRef, useEffect } from "react";
+
+const CORRECT_CODE = import.meta.env.VITE_INVITE_CODE || "";
+const CODE_LENGTH = 6;
+
+export function AccessGate({ children }) {
+  const [digits, setDigits] = useState(Array(CODE_LENGTH).fill(""));
+  const [status, setStatus] = useState("idle"); // "idle" | "error" | "success"
+  const [unlocked, setUnlocked] = useState(false);
+  const inputRefs = useRef([]);
+
+  useEffect(() => {
+    inputRefs.current[0]?.focus();
+  }, []);
+
+  const handleChange = (index, value) => {
+    const char = value.replace(/\D/g, "").slice(-1);
+    const newDigits = [...digits];
+    newDigits[index] = char;
+    setDigits(newDigits);
+    setStatus("idle");
+
+    if (char && index < CODE_LENGTH - 1) {
+      inputRefs.current[index + 1]?.focus();
+    }
+
+    // Auto-submit when all filled
+    if (char && index === CODE_LENGTH - 1) {
+      const entered = [...newDigits.slice(0, CODE_LENGTH - 1), char].join("");
+      validate(entered);
+    }
+  };
+
+  const handleKeyDown = (index, e) => {
+    if (e.key === "Backspace") {
+      if (digits[index]) {
+        const newDigits = [...digits];
+        newDigits[index] = "";
+        setDigits(newDigits);
+        setStatus("idle");
+      } else if (index > 0) {
+        inputRefs.current[index - 1]?.focus();
+      }
+    } else if (e.key === "ArrowLeft" && index > 0) {
+      inputRefs.current[index - 1]?.focus();
+    } else if (e.key === "ArrowRight" && index < CODE_LENGTH - 1) {
+      inputRefs.current[index + 1]?.focus();
+    } else if (e.key === "Enter") {
+      validate(digits.join(""));
+    }
+  };
+
+  const handlePaste = (e) => {
+    e.preventDefault();
+    const pasted = e.clipboardData.getData("text").replace(/\D/g, "").slice(0, CODE_LENGTH);
+    if (!pasted) return;
+    const newDigits = Array(CODE_LENGTH).fill("");
+    pasted.split("").forEach((char, i) => { newDigits[i] = char; });
+    setDigits(newDigits);
+    setStatus("idle");
+    const nextEmpty = pasted.length < CODE_LENGTH ? pasted.length : CODE_LENGTH - 1;
+    inputRefs.current[nextEmpty]?.focus();
+    if (pasted.length === CODE_LENGTH) validate(pasted);
+  };
+
+  const validate = (code) => {
+    if (code === CORRECT_CODE) {
+      setStatus("success");
+      setTimeout(() => setUnlocked(true), 600);
+    } else {
+      setStatus("error");
+      setDigits(Array(CODE_LENGTH).fill(""));
+      setTimeout(() => {
+        inputRefs.current[0]?.focus();
+        setStatus("idle");
+      }, 700);
+    }
+  };
+
+  if (unlocked) return <>{children}</>;
+
+  return (
+    <div className="access-gate">
+      <div className="access-gate__card">
+        {/* Decorative ring */}
+        <div className="access-gate__icon">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="12" y="18" width="16" height="13" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+            <path d="M14 18v-4a6 6 0 1 1 12 0v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            <circle cx="20" cy="24" r="1.5" fill="currentColor"/>
+          </svg>
+        </div>
+
+        <h1 className="access-gate__title">Enter Access Code</h1>
+        <p className="access-gate__subtitle">You've been given a 6-digit code to view this invitation</p>
+
+        <div className="access-gate__inputs" onPaste={handlePaste}>
+          {digits.map((digit, i) => (
+            <input
+              key={i}
+              ref={(el) => (inputRefs.current[i] = el)}
+              type="text"
+              inputMode="numeric"
+              pattern="[0-9]*"
+              maxLength={1}
+              value={digit}
+              onChange={(e) => handleChange(i, e.target.value)}
+              onKeyDown={(e) => handleKeyDown(i, e)}
+              className={`access-gate__box${status === "error" ? " access-gate__box--error" : ""}${status === "success" ? " access-gate__box--success" : ""}`}
+              autoComplete="off"
+            />
+          ))}
+        </div>
+
+        {status === "error" && (
+          <p className="access-gate__message access-gate__message--error">
+            Incorrect code. Please try again.
+          </p>
+        )}
+
+        {status === "success" && (
+          <p className="access-gate__message access-gate__message--success">
+            Welcome!
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}

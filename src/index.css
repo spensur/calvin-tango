@@ -21,3 +21,110 @@ html, body, #root {
 .section-1-bg {
   background: linear-gradient(to bottom, #F0EFEB 0%, #E9E7E3 39%, #DAE3E8 51%, #C0DBF0 60%);
 }
+
+/* --- ACCESS GATE START --- */
+.access-gate {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fdf6ee; /* match your invite bg or swap with your token */
+  padding: 2rem;
+}
+
+.access-gate__card {
+  background: #fff;
+  border-radius: 1.25rem;
+  padding: 2.5rem 2rem;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 2px 24px 0 rgba(0,0,0,0.07);
+}
+
+.access-gate__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #fdf0e0;
+  color: #c8853a;
+  margin-bottom: 1.25rem;
+}
+
+.access-gate__title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #2d1f0e;
+  margin: 0 0 0.5rem;
+}
+
+.access-gate__subtitle {
+  font-size: 0.9rem;
+  color: #9e8a76;
+  margin: 0 0 2rem;
+  line-height: 1.5;
+}
+
+/* OTP boxes */
+.access-gate__inputs {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.access-gate__box {
+  width: 48px;
+  height: 56px;
+  border-radius: 10px;
+  border: 1.5px solid #e0d5c8;
+  background: #fdf8f3;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2d1f0e;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+  caret-color: transparent;
+}
+
+.access-gate__box:focus {
+  border-color: #c8853a;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(200, 133, 58, 0.15);
+}
+
+.access-gate__box--error {
+  border-color: #e05c5c !important;
+  background: #fff5f5 !important;
+  animation: shake 0.35s ease;
+}
+
+.access-gate__box--success {
+  border-color: #5cb87a !important;
+  background: #f0faf3 !important;
+}
+
+@keyframes shake {
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(-5px); }
+  40%  { transform: translateX(5px); }
+  60%  { transform: translateX(-4px); }
+  80%  { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
+/* Feedback messages */
+.access-gate__message {
+  font-size: 0.85rem;
+  margin: 0;
+  min-height: 1.2em;
+}
+
+.access-gate__message--error  { color: #c94040; }
+.access-gate__message--success { color: #3a8a58; }
+
+/* --- ACCESS GATE END --- */
