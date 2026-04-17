@@ -34,7 +34,7 @@ html, body, #root {
   z-index: 9999;
 }
 
-.access-gate__card {
+.access-gate-card {
   background: #fff;
   border-radius: 1.25rem;
   padding: 2.5rem 2rem;
@@ -44,7 +44,7 @@ html, body, #root {
   box-shadow: 0 2px 24px 0 rgba(0,0,0,0.07);
 }
 
-.access-gate__icon {
+.access-gate-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -56,14 +56,14 @@ html, body, #root {
   margin-bottom: 1.25rem;
 }
 
-.access-gate__title {
+.access-gate-title {
   font-size: 1.35rem;
   font-weight: 600;
   color: #2d1f0e;
   margin: 0 0 0.5rem;
 }
 
-.access-gate__subtitle {
+.access-gate-subtitle {
   font-size: 0.9rem;
   color: #76799e;
   margin: 0 0 2rem;
@@ -71,21 +71,21 @@ html, body, #root {
 }
 
 /* OTP boxes */
-.access-gate__inputs {
+.access-gate-inputs {
   display: flex;
-  gap: 0.6rem;
+  gap: clamp(0.25rem, 1.5vw, 0.6rem);
   justify-content: center;
   margin-bottom: 1.25rem;
 }
 
-.access-gate__box {
-  width: 48px;
-  height: 56px;
+.access-gate-box {
+  width: clamp(34px, 9vw, 48px);
+  height: clamp(42px, 11vw, 56px);
   border-radius: 10px;
   border: 1.5px solid #c8cce0;
   background: #fdf5f3;
   text-align: center;
-  font-size: 1.4rem;
+  font-size: clamp(1rem, 3.5vw, 1.4rem);
   font-weight: 600;
   color: #2d1f0e;
   outline: none;
@@ -93,19 +93,19 @@ html, body, #root {
   caret-color: transparent;
 }
 
-.access-gate__box:focus {
+.access-gate-box:focus {
   border-color: #60A5FA;
   background: #fff;
   box-shadow: 0 0 0 3px rgba(58, 101, 200, 0.15);
 }
 
-.access-gate__box--error {
+.access-gate-box--error {
   border-color: #e05c5c !important;
   background: #fff5f5 !important;
   animation: shake 0.35s ease;
 }
 
-.access-gate__box--success {
+.access-gate-box--success {
   border-color: #5cb87a !important;
   background: #f0faf3 !important;
 }
@@ -119,12 +119,12 @@ html, body, #root {
   100% { transform: translateX(0); }
 }
 
-.access-gate__message {
+.access-gate-message {
   font-size: 0.85rem;
   margin: 0;
   min-height: 1.2em;
 }
 
-.access-gate__message--error  { color: #c94040; }
-.access-gate__message--success { color: #3a8a58; }
+.access-gate-message--error  { color: #c94040; }
+.access-gate-message--success { color: #3a8a58; }
 /* --- ACCESS GATE END --- */

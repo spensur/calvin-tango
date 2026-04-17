@@ -9,15 +9,31 @@ export function AccessGate({ onUnlock, visible }) {
   const inputRefs = useRef([]);
 
   useEffect(() => {
-    if (visible) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    const preventScroll = (e) => e.preventDefault();
 
-    return () => {
-      document.body.style.overflow = "auto";
-    };
+    if (visible) {
+      // Lock scroll position
+      const scrollY = window.scrollY;
+
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+
+      document.addEventListener("touchmove", preventScroll, { passive: false });
+
+      return () => {
+        document.body.style.overflow = "auto";
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+
+        document.removeEventListener("touchmove", preventScroll);
+
+        // Restore scroll position
+        window.scrollTo(0, scrollY);
+      };
+    }
   }, [visible]);
 
   const handleChange = (index, value) => {
@@ -87,8 +103,8 @@ export function AccessGate({ onUnlock, visible }) {
 
   return (
     <div className="access-gate">
-      <div className="access-gate__card">
-        <div className="access-gate__icon">
+      <div className="access-gate-card">
+        <div className="access-gate-icon">
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="12" y="18" width="16" height="13" rx="2" stroke="currentColor" strokeWidth="1.5"/>
             <path d="M14 18v-4a6 6 0 1 1 12 0v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
@@ -96,10 +112,10 @@ export function AccessGate({ onUnlock, visible }) {
           </svg>
         </div>
 
-        <h1 className="access-gate__title">Enter Access Code</h1>
-        <p className="access-gate__subtitle">You've been given a 6-digit code to view this invitation</p>
+        <h1 className="access-gate-title">Enter Access Code</h1>
+        <p className="access-gate-subtitle">You've been given a 6-digit code to view this invitation</p>
 
-        <div className="access-gate__inputs" onPaste={handlePaste}>
+        <div className="access-gate-inputs" onPaste={handlePaste}>
           {digits.map((digit, i) => (
             <input
               key={i}
@@ -111,19 +127,19 @@ export function AccessGate({ onUnlock, visible }) {
               value={digit}
               onChange={(e) => handleChange(i, e.target.value)}
               onKeyDown={(e) => handleKeyDown(i, e)}
-              className={`access-gate__box${status === "error" ? " access-gate__box--error" : ""}${status === "success" ? " access-gate__box--success" : ""}`}
+              className={`access-gate-box${status === "error" ? " access-gate-box--error" : ""}${status === "success" ? " access-gate-box--success" : ""}`}
               autoComplete="off"
             />
           ))}
         </div>
 
         {status === "error" && (
-          <p className="access-gate__message access-gate__message--error">
+          <p className="access-gate-message access-gate-message--error">
             Incorrect code. Please try again.
           </p>
         )}
         {status === "success" && (
-          <p className="access-gate__message access-gate__message--success">
+          <p className="access-gate-message access-gate-message--success">
             Welcome!
           </p>
         )}
