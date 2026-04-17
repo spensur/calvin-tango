@@ -11,11 +11,11 @@ import { motion } from "framer-motion";
 export function Sway({
   children,
   delay = 0,
-  amplitude = 2.5,
-  duration = 4,
+  amplitude = 0.3,
+  duration = 8,
   origin = "center",
   className = "",
-  unlocked = false, // 👈 new prop
+  unlocked = false,
 }) {
   const originMap = {
     left: "top left",
@@ -23,22 +23,29 @@ export function Sway({
     center: "top center",
   };
 
+  const variance = 0.1 + Math.random() * 0.2;
+
+  const swayKeyframes = [
+    0,
+    amplitude,
+    -amplitude * (0.6 + Math.random() * 0.1),
+    amplitude * (0.7 + Math.random() * 0.1),
+    0,
+  ];
+
   return (
     <motion.div
       className={className}
       style={{ transformOrigin: originMap[origin] }}
       initial={{ rotate: 0 }}
-      animate={
-        unlocked
-          ? { rotate: [0, amplitude, 0, -amplitude, 0] }
-          : { rotate: 0 } 
-      }
+      animate={unlocked ? { rotate: swayKeyframes } : { rotate: 0 }}
       transition={
         unlocked
           ? {
               duration,
               delay,
               repeat: Infinity,
+              repeatType: "mirror", // 👈 KEY FIX (no snapping back)
               ease: "easeInOut",
             }
           : {}

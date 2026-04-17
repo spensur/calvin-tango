@@ -58,7 +58,7 @@ export function Section1({ unlocked }) {
 
       {/* --- TOP RIGHT GRAPHICS --- */}
       <div className="relative right-0 -top-15">
-        <SwingOnEntry delay={1.1} unlocked={unlocked} className="absolute right-11 top-46 w-13">
+        <SwingOnEntry delay={1.1} unlocked={unlocked} className="absolute right-11 top-43 w-13">
           <img src={TasselJade} className="w-full" />
         </SwingOnEntry>
         <SwingOnEntry delay={1.3} unlocked={unlocked} className="absolute right-0 top-67 w-18">
