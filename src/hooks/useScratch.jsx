@@ -54,17 +54,29 @@ function useScratch(threshold = 0.40) {
     revealed.current = true;
     setIsRevealed(true);
     const canvas = canvasRef.current;
-    canvas.style.transition = "opacity 0.8s ease";
+
+    canvas.style.transition = "opacity 2s ease";
+    
+    // Force reflow so the browser registers the transition before opacity changes
+    void canvas.offsetHeight;
+
     canvas.style.opacity = "0";
     canvas.style.pointerEvents = "none";
+    
+    // Wait for the full 2s transition before hiding
+    // setTimeout(() => {
+    //   canvas.style.display = "none";
+    // }, 2000);
   }, []);
 
   const getPos = (e, canvas) => {
     const rect = canvas.getBoundingClientRect();
-    const sx = canvas.width / rect.width;
-    const sy = canvas.height / rect.height;
     const src = e.touches ? e.touches[0] : e;
-    return { x: (src.clientX - rect.left) * sx, y: (src.clientY - rect.top) * sy };
+
+    return {
+      x: src.clientX - rect.left,
+      y: src.clientY - rect.top,
+    };
   };
 
   useEffect(() => {
