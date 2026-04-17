@@ -29,7 +29,7 @@ html, body, #root {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fdf6ee;
+  background-color: #ABBEDB;
   padding: 2rem;
   z-index: 9999;
 }
@@ -51,8 +51,8 @@ html, body, #root {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: #fdf0e0;
-  color: #c8853a;
+  background: #DBEAFE;
+  color: #60A5FA;
   margin-bottom: 1.25rem;
 }
 
@@ -65,7 +65,7 @@ html, body, #root {
 
 .access-gate__subtitle {
   font-size: 0.9rem;
-  color: #9e8a76;
+  color: #76799e;
   margin: 0 0 2rem;
   line-height: 1.5;
 }
@@ -82,8 +82,8 @@ html, body, #root {
   width: 48px;
   height: 56px;
   border-radius: 10px;
-  border: 1.5px solid #e0d5c8;
-  background: #fdf8f3;
+  border: 1.5px solid #c8cce0;
+  background: #fdf5f3;
   text-align: center;
   font-size: 1.4rem;
   font-weight: 600;
@@ -94,9 +94,9 @@ html, body, #root {
 }
 
 .access-gate__box:focus {
-  border-color: #c8853a;
+  border-color: #60A5FA;
   background: #fff;
-  box-shadow: 0 0 0 3px rgba(200, 133, 58, 0.15);
+  box-shadow: 0 0 0 3px rgba(58, 101, 200, 0.15);
 }
 
 .access-gate__box--error {
@@ -127,5 +127,4 @@ html, body, #root {
 
 .access-gate__message--error  { color: #c94040; }
 .access-gate__message--success { color: #3a8a58; }
-
 /* --- ACCESS GATE END --- */

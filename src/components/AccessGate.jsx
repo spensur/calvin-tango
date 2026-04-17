@@ -9,7 +9,15 @@ export function AccessGate({ onUnlock, visible }) {
   const inputRefs = useRef([]);
 
   useEffect(() => {
-    if (visible) inputRefs.current[0]?.focus();
+    if (visible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [visible]);
 
   const handleChange = (index, value) => {

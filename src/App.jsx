@@ -12,7 +12,13 @@ function App() {
 
   return (
     <>
-      <AccessGate onUnlock={() => setUnlocked(true)} visible={!unlocked} />
+      <AccessGate
+        onUnlock={() => {
+          window.scrollTo({ top: 0, behavior: "instant" });
+          setUnlocked(true);
+        }}
+        visible={!unlocked}
+      />
       <div className="invite-root relative overflow-hidden">
         <RepeatingBackground tileHeight="100vh" />
         <Section1 />
