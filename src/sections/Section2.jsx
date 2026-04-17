@@ -1,4 +1,4 @@
-import useScratch from "../hooks/useScratch";
+import useScratch from "../hooks/useScratch"
 import FlowerArch from "../assets/section-2/flower-arch.webp";
 import CurtainBlueT from "../assets/section-2/curtain-blue-t.webp";
 import CurtainBlueL from "../assets/section-2/curtain-blue-l.webp";
