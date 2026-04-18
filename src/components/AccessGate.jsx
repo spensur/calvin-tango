@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-const CORRECT_CODE = import.meta.env.VITE_INVITE_CODE || "";
+const CORRECT_CODE = import.meta.env.VITE_INVITE_CODE;
 const CODE_LENGTH = 6;
 
 export function AccessGate({ onUnlock, visible }) {

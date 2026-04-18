@@ -72,8 +72,8 @@ export function Section2({ unlocked }) {
             variants={fadeIn(2)}
           >
             <h2 className="text-2xl">SATURDAY</h2>
-            <h1 className="text-4xl">SEP 26, 2026</h1>
-            <h3 className="text-xl">09:30 PM</h3>
+            <h1 className="text-4xl">OCT 03, 2026</h1>
+            <h3 className="text-xl">10:30 PM</h3>
           </motion.div>
 
           {/* SCRATCH AREA */}
