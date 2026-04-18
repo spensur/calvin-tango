@@ -85,9 +85,9 @@ export function Section1({ unlocked }) {
           bg-linear-to-t from-[#E1BF6A] to-[#C28C2A] bg-clip-text text-transparent drop-shadow-sm"
         variants={fadeIn(1.3)}
       >
-        <h1 className="text-7xl">Melbird</h1>
+        <h1 className="text-7xl">Melvin</h1>
         <h1 className="text-5xl -mt-4">&</h1>
-        <h1 className="text-7xl -mt-8">Camel🐪</h1>
+        <h1 className="text-7xl -mt-8">Camille</h1>
       </motion.div>
     </motion.section>
   );
