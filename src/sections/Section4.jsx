@@ -5,11 +5,12 @@ import LanternFlower from "../assets/section-4/lantern-flower.webp";
 import NativityStarPatchRating from "../assets/section-4/nativity-star-patch-rating.webp";
 
 import Footer from "../assets/section-4/footer.webp";
+import { GoogleMapsButton } from "../components/GoogleMapsButton";
 
 
 export function Section4() {
   return (
-    <section className="relative w-full min-h-200 overflow-visible mt-10">
+    <section className="relative w-full min-h-210 overflow-visible mt-10">
       {/* --- FOOTER --- */}
       <img src={Footer} className="absolute left-0 bottom-0 scale-100"/>
 
@@ -21,6 +22,8 @@ export function Section4() {
           4.6
           <img src={NativityStarPatchRating} className="h-5"/>
         </div>
+
+        <GoogleMapsButton />
       </div>
       
       {/* --- VENUE PIC --- */}

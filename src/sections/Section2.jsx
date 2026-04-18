@@ -16,7 +16,7 @@ import { fromLeft, fromRight, fromTop, fadeIn, fromBottom } from "../animations/
 import { Sway } from "../animations/Sway";
 
 
-export function Section2() {
+export function Section2({ unlocked }) {
   const { canvasRef, isRevealed } = useScratch(0.40);
 
   // --- FLOWER ARC TOP trigger: fires when top+5px is exposed ---
@@ -25,8 +25,8 @@ export function Section2() {
   const section2Controls = useAnimation();
 
   useEffect(() => {
-    if (flowerArchInView) section2Controls.start("show");
-  }, [flowerArchInView]);
+    if (flowerArchInView && unlocked) section2Controls.start("show");
+  }, [flowerArchInView, unlocked]);
 
   // --- SCRATCH section trigger: fires when ScratchTheDate top is exposed ---
   const scratchRef = useRef(null);
@@ -34,8 +34,8 @@ export function Section2() {
   const scratchControls = useAnimation();
 
   useEffect(() => {
-    if (scratchInView) scratchControls.start("show");
-  }, [scratchInView]);
+    if (scratchInView && unlocked) scratchControls.start("show");
+  }, [scratchInView, unlocked]);
 
   // --- FOOTER trigger: fires when FrameFlower center is reached ---
   const frameFlowerRef = useRef(null);
