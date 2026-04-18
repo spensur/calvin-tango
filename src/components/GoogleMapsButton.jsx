@@ -6,8 +6,8 @@ export function GoogleMapsButton() {
       href={MAPS_URL}
       target="_blank"
       className="
-        w-61 mt-4.5
-        group flex items-center gap-2 px-3.5 py-2.5 border border-[#C9A96E] rounded-full
+        w-64 mt-4.5
+        group flex items-center gap-2 justify-between px-3.5 py-2.5 border border-[#C9A96E] rounded-full
         bg-linear-to-b from-[#fdf8ef] to-[#f5edda]
         shadow-[0_2px_8px_rgba(180,140,60,0.18)]
         transition-all duration-300
@@ -26,10 +26,10 @@ export function GoogleMapsButton() {
 
       <span
         className="text-xs tracking-[0.12em] uppercase
-              bg-linear-to-r from-[#8B6914] to-[#C9A96E]
-              bg-clip-text text-transparent
-              group-hover:from-[#7a5c10] group-hover:to-[#a8722a]
-              transition-all duration-300 font-semibold"
+          bg-linear-to-r from-[#8B6914] to-[#C9A96E]
+          bg-clip-text text-transparent
+          group-hover:from-[#7a5c10] group-hover:to-[#a8722a]
+          transition-all duration-300 font-semibold"
       >
         Open in Google Maps
       </span>
