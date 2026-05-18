@@ -54,7 +54,7 @@ export function Section3(unlocked) {
           Semi Formal
         </h2>
         <p className="text-sm bg-linear-to-r from-[#E73A3F] to-[#E6646D] bg-clip-text text-transparent -mt-1">
-          AVOID black, white, & dark colors
+          Avoid black, white, & dark colors
         </p>
 
         <div className="size-3 bg-linear-to-r from-[#3E5041] to-[#518655] rounded-full my-4" />
