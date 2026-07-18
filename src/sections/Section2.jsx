@@ -73,7 +73,7 @@ export function Section2({ unlocked }) {
           >
             <h2 className="text-2xl">SATURDAY</h2>
             <h1 className="text-4xl">OCT 03, 2026</h1>
-            <h3 className="text-xl">10:30 AM</h3>
+            <h3 className="text-xl">10:00 AM</h3>
           </motion.div>
 
           {/* SCRATCH AREA */}
